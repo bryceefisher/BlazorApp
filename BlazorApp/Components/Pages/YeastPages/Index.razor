@@ -1,0 +1,27 @@
+﻿@page "/yeasts"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="yeasts/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="DB.Yeasts">
+    <PropertyColumn Property="yeast => yeast.Name" />
+    <PropertyColumn Property="yeast => yeast.Lab" />
+    <PropertyColumn Property="yeast => yeast.Code" />
+    <PropertyColumn Property="yeast => yeast.Type" />
+    <PropertyColumn Property="yeast => yeast.Form" />
+    <PropertyColumn Property="yeast => yeast.Flocculation" />
+
+    <TemplateColumn Context="yeast">
+        <a href="@($"yeasts/edit?id={yeast.Id}")">Edit</a> |
+        <a href="@($"yeasts/details?id={yeast.Id}")">Details</a> |
+        <a href="@($"yeasts/delete?id={yeast.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>

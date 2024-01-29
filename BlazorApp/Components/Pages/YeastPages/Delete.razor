@@ -1,0 +1,73 @@
+﻿@page "/yeasts/delete"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Delete</PageTitle>
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Yeast</h4>
+    <hr />
+    @if (yeast is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">Name</dt>
+            <dd class="col-sm-10">@yeast.Name</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Lab</dt>
+            <dd class="col-sm-10">@yeast.Lab</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Code</dt>
+            <dd class="col-sm-10">@yeast.Code</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Type</dt>
+            <dd class="col-sm-10">@yeast.Type</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Form</dt>
+            <dd class="col-sm-10">@yeast.Form</dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Flocculation</dt>
+            <dd class="col-sm-10">@yeast.Flocculation</dd>
+        </dl>
+        <EditForm method="post" Model="yeast" OnValidSubmit="DeleteYeast" FormName="delete" Enhance>
+            <button type="submit" class="btn btn-danger" disabled="@(yeast is null)">Delete</button> |
+            <a href="/yeasts">Back to List</a>
+        </EditForm>
+    }
+</div>
+
+@code {
+    Yeast? yeast;
+
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        yeast = await DB.Yeasts.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (yeast is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    public async Task DeleteYeast()
+    {
+        DB.Yeasts.Remove(yeast!);
+        await DB.SaveChangesAsync();
+        NavigationManager.NavigateTo("/yeasts");
+    }
+}

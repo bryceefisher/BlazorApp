@@ -1,0 +1,146 @@
+﻿@page "/Recipes/edit"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h4>Recipe</h4>
+<hr />
+@if (Recipe is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Recipe" OnValidSubmit="UpdateRecipe" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <input type="hidden" name="Recipe.Id" value="@Recipe.Id" />
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <InputText id="name" @bind-Value="Recipe.Name" class="form-control" />
+                    <ValidationMessage For="() => Recipe.Name" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="style" class="form-label">Style:</label>
+                    <InputText id="style" @bind-Value="Recipe.Style" class="form-control" />
+                    <ValidationMessage For="() => Recipe.Style" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="originalgravity" class="form-label">OriginalGravity:</label>
+                    <InputNumber id="originalgravity" @bind-Value="Recipe.OriginalGravity" class="form-control" />
+                    <ValidationMessage For="() => Recipe.OriginalGravity" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="finalgravity" class="form-label">FinalGravity:</label>
+                    <InputNumber id="finalgravity" @bind-Value="Recipe.FinalGravity" class="form-control" />
+                    <ValidationMessage For="() => Recipe.FinalGravity" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="ibu" class="form-label">Ibu:</label>
+                    <InputNumber id="ibu" @bind-Value="Recipe.Ibu" class="form-control" />
+                    <ValidationMessage For="() => Recipe.Ibu" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="abv" class="form-label">Abv:</label>
+                    <InputNumber id="abv" @bind-Value="Recipe.Abv" class="form-control" />
+                    <ValidationMessage For="() => Recipe.Abv" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="yeastid" class="form-label">YeastId:</label>
+                    <InputNumber id="yeastid" @bind-Value="Recipe.YeastId" class="form-control" />
+                    <ValidationMessage For="() => Recipe.YeastId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="yeastamount" class="form-label">YeastAmount:</label>
+                    <InputNumber id="yeastamount" @bind-Value="Recipe.YeastAmount" class="form-control" />
+                    <ValidationMessage For="() => Recipe.YeastAmount" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="yeastviability" class="form-label">YeastViability:</label>
+                    <InputNumber id="yeastviability" @bind-Value="Recipe.YeastViability" class="form-control" />
+                    <ValidationMessage For="() => Recipe.YeastViability" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="mashtemp" class="form-label">MashTemp:</label>
+                    <InputNumber id="mashtemp" @bind-Value="Recipe.MashTemp" class="form-control" />
+                    <ValidationMessage For="() => Recipe.MashTemp" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="waterratio" class="form-label">WaterRatio:</label>
+                    <InputNumber id="waterratio" @bind-Value="Recipe.WaterRatio" class="form-control" />
+                    <ValidationMessage For="() => Recipe.WaterRatio" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="amountofwater" class="form-label">AmountOfWater:</label>
+                    <InputNumber id="amountofwater" @bind-Value="Recipe.AmountOfWater" class="form-control" />
+                    <ValidationMessage For="() => Recipe.AmountOfWater" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="color" class="form-label">Color:</label>
+                    <InputNumber id="color" @bind-Value="Recipe.Color" class="form-control" />
+                    <ValidationMessage For="() => Recipe.Color" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/recipes">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    [SupplyParameterFromForm]
+    public Recipe? Recipe { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Recipe ??= await DB.Recipes.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (Recipe is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see https://aka.ms/RazorPagesCRUD.
+    public async Task UpdateRecipe()
+    {
+        DB.Attach(Recipe!).State = EntityState.Modified;
+
+        try
+        {
+            await DB.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!RecipeExists(Recipe!.Id))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/recipes");
+    }
+
+    bool RecipeExists(int id)
+    {
+        return DB.Recipes.Any(e => e.Id == id);
+    }
+}

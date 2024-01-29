@@ -1,0 +1,47 @@
+﻿@page "/hops/details"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Hop</h4>
+    <hr />
+    @if (hop is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">AlphaAcid</dt>
+            <dd class="col-sm-10">@hop.AlphaAcid</dd>
+            <dt class="col-sm-2">Name</dt>
+            <dd class="col-sm-10">@hop.Name</dd>
+        </dl>
+        <div>
+            <a href="@($"/hops/edit?id={hop.Id}")">Edit</a> |
+            <a href="@($"/hops")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    Hop? hop;
+
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        hop = await DB.Hops.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (hop is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

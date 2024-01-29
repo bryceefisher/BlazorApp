@@ -1,0 +1,23 @@
+﻿@page "/hops"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="hops/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="DB.Hops">
+    <PropertyColumn Property="hop => hop.AlphaAcid" />
+    <PropertyColumn Property="hop => hop.Name" />
+
+    <TemplateColumn Context="hop">
+        <a href="@($"hops/edit?id={hop.Id}")">Edit</a> |
+        <a href="@($"hops/details?id={hop.Id}")">Details</a> |
+        <a href="@($"hops/delete?id={hop.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>

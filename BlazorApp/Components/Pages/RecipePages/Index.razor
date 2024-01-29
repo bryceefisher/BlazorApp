@@ -1,0 +1,34 @@
+﻿@page "/recipes"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="recipes/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="DB.Recipes">
+    <PropertyColumn Property="recipe => recipe.Name" />
+    <PropertyColumn Property="recipe => recipe.Style" />
+    <PropertyColumn Property="recipe => recipe.OriginalGravity" />
+    <PropertyColumn Property="recipe => recipe.FinalGravity" />
+    <PropertyColumn Property="recipe => recipe.Ibu" />
+    <PropertyColumn Property="recipe => recipe.Abv" />
+    <PropertyColumn Property="recipe => recipe.YeastId" />
+    <PropertyColumn Property="recipe => recipe.YeastAmount" />
+    <PropertyColumn Property="recipe => recipe.YeastViability" />
+    <PropertyColumn Property="recipe => recipe.MashTemp" />
+    <PropertyColumn Property="recipe => recipe.WaterRatio" />
+    <PropertyColumn Property="recipe => recipe.AmountOfWater" />
+    <PropertyColumn Property="recipe => recipe.Color" />
+
+    <TemplateColumn Context="recipe">
+        <a href="@($"recipes/edit?id={recipe.Id}")">Edit</a> |
+        <a href="@($"recipes/details?id={recipe.Id}")">Details</a> |
+        <a href="@($"recipes/delete?id={recipe.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>

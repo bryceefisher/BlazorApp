@@ -1,0 +1,69 @@
+﻿@page "/recipes/details"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Recipe</h4>
+    <hr />
+    @if (recipe is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">Name</dt>
+            <dd class="col-sm-10">@recipe.Name</dd>
+            <dt class="col-sm-2">Style</dt>
+            <dd class="col-sm-10">@recipe.Style</dd>
+            <dt class="col-sm-2">OriginalGravity</dt>
+            <dd class="col-sm-10">@recipe.OriginalGravity</dd>
+            <dt class="col-sm-2">FinalGravity</dt>
+            <dd class="col-sm-10">@recipe.FinalGravity</dd>
+            <dt class="col-sm-2">Ibu</dt>
+            <dd class="col-sm-10">@recipe.Ibu</dd>
+            <dt class="col-sm-2">Abv</dt>
+            <dd class="col-sm-10">@recipe.Abv</dd>
+            <dt class="col-sm-2">YeastId</dt>
+            <dd class="col-sm-10">@recipe.YeastId</dd>
+            <dt class="col-sm-2">YeastAmount</dt>
+            <dd class="col-sm-10">@recipe.YeastAmount</dd>
+            <dt class="col-sm-2">YeastViability</dt>
+            <dd class="col-sm-10">@recipe.YeastViability</dd>
+            <dt class="col-sm-2">MashTemp</dt>
+            <dd class="col-sm-10">@recipe.MashTemp</dd>
+            <dt class="col-sm-2">WaterRatio</dt>
+            <dd class="col-sm-10">@recipe.WaterRatio</dd>
+            <dt class="col-sm-2">AmountOfWater</dt>
+            <dd class="col-sm-10">@recipe.AmountOfWater</dd>
+            <dt class="col-sm-2">Color</dt>
+            <dd class="col-sm-10">@recipe.Color</dd>
+        </dl>
+        <div>
+            <a href="@($"/recipes/edit?id={recipe.Id}")">Edit</a> |
+            <a href="@($"/recipes")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    Recipe? recipe;
+
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        recipe = await DB.Recipes.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (recipe is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

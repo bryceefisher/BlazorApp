@@ -1,0 +1,68 @@
+﻿@page "/fermentables/create"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h4>Fermentable</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Fermentable" OnValidSubmit="AddFermentable" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" />
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label> 
+                <InputText id="name" @bind-Value="Fermentable.Name" class="form-control" /> 
+                <ValidationMessage For="() => Fermentable.Name" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="type" class="form-label">Type:</label> 
+                <InputText id="type" @bind-Value="Fermentable.Type" class="form-control" /> 
+                <ValidationMessage For="() => Fermentable.Type" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="origin" class="form-label">Origin:</label> 
+                <InputText id="origin" @bind-Value="Fermentable.Origin" class="form-control" /> 
+                <ValidationMessage For="() => Fermentable.Origin" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="color" class="form-label">Color:</label> 
+                <InputNumber id="color" @bind-Value="Fermentable.Color" class="form-control" /> 
+                <ValidationMessage For="() => Fermentable.Color" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="potentialgravity" class="form-label">PotentialGravity:</label> 
+                <InputNumber id="potentialgravity" @bind-Value="Fermentable.PotentialGravity" class="form-control" /> 
+                <ValidationMessage For="() => Fermentable.PotentialGravity" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="maxinbatch" class="form-label">MaxInBatch:</label> 
+                <InputNumber id="maxinbatch" @bind-Value="Fermentable.MaxInBatch" class="form-control" /> 
+                <ValidationMessage For="() => Fermentable.MaxInBatch" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/fermentables">Back to List</a>
+</div>
+
+@code {
+
+    [SupplyParameterFromForm]
+    public Fermentable Fermentable { get; set; } = new();
+
+    // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+    public async Task AddFermentable()
+    {
+        DB.Fermentables.Add(Fermentable);
+        await DB.SaveChangesAsync();
+        NavigationManager.NavigateTo("/fermentables");
+    }
+}

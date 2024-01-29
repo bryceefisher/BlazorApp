@@ -1,0 +1,91 @@
+﻿@page "/Hops/edit"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h4>Hop</h4>
+<hr />
+@if (Hop is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Hop" OnValidSubmit="UpdateHop" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <input type="hidden" name="Hop.Id" value="@Hop.Id" />
+                <div class="mb-3">
+                    <label for="alphaacid" class="form-label">AlphaAcid:</label>
+                    <InputNumber id="alphaacid" @bind-Value="Hop.AlphaAcid" class="form-control" />
+                    <ValidationMessage For="() => Hop.AlphaAcid" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <InputText id="name" @bind-Value="Hop.Name" class="form-control" />
+                    <ValidationMessage For="() => Hop.Name" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/hops">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    [SupplyParameterFromForm]
+    public Hop? Hop { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Hop ??= await DB.Hops.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (Hop is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see https://aka.ms/RazorPagesCRUD.
+    public async Task UpdateHop()
+    {
+        DB.Attach(Hop!).State = EntityState.Modified;
+
+        try
+        {
+            await DB.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!HopExists(Hop!.Id))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/hops");
+    }
+
+    bool HopExists(int id)
+    {
+        return DB.Hops.Any(e => e.Id == id);
+    }
+}

@@ -1,0 +1,111 @@
+﻿@page "/Yeasts/edit"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h4>Yeast</h4>
+<hr />
+@if (Yeast is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Yeast" OnValidSubmit="UpdateYeast" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <input type="hidden" name="Yeast.Id" value="@Yeast.Id" />
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <InputText id="name" @bind-Value="Yeast.Name" class="form-control" />
+                    <ValidationMessage For="() => Yeast.Name" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="lab" class="form-label">Lab:</label>
+                    <InputText id="lab" @bind-Value="Yeast.Lab" class="form-control" />
+                    <ValidationMessage For="() => Yeast.Lab" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="code" class="form-label">Code:</label>
+                    <InputText id="code" @bind-Value="Yeast.Code" class="form-control" />
+                    <ValidationMessage For="() => Yeast.Code" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="type" class="form-label">Type:</label>
+                    <InputText id="type" @bind-Value="Yeast.Type" class="form-control" />
+                    <ValidationMessage For="() => Yeast.Type" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="form" class="form-label">Form:</label>
+                    <InputText id="form" @bind-Value="Yeast.Form" class="form-control" />
+                    <ValidationMessage For="() => Yeast.Form" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="flocculation" class="form-label">Flocculation:</label>
+                    <InputText id="flocculation" @bind-Value="Yeast.Flocculation" class="form-control" />
+                    <ValidationMessage For="() => Yeast.Flocculation" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/yeasts">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    [SupplyParameterFromForm]
+    public Yeast? Yeast { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Yeast ??= await DB.Yeasts.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (Yeast is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see https://aka.ms/RazorPagesCRUD.
+    public async Task UpdateYeast()
+    {
+        DB.Attach(Yeast!).State = EntityState.Modified;
+
+        try
+        {
+            await DB.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!YeastExists(Yeast!.Id))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/yeasts");
+    }
+
+    bool YeastExists(int id)
+    {
+        return DB.Yeasts.Any(e => e.Id == id);
+    }
+}
