@@ -1,0 +1,53 @@
+﻿@page "/fermentablepairs/create"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h4>Fermentablepair</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Fermentablepair" OnValidSubmit="AddFermentablepair" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" />
+            <div class="mb-3">
+                <label for="recipeid" class="form-label">RecipeId:</label> 
+                <InputNumber id="recipeid" @bind-Value="Fermentablepair.RecipeId" class="form-control" /> 
+                <ValidationMessage For="() => Fermentablepair.RecipeId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="fermentableid" class="form-label">FermentableId:</label> 
+                <InputNumber id="fermentableid" @bind-Value="Fermentablepair.FermentableId" class="form-control" /> 
+                <ValidationMessage For="() => Fermentablepair.FermentableId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="weight" class="form-label">Weight:</label> 
+                <InputNumber id="weight" @bind-Value="Fermentablepair.Weight" class="form-control" /> 
+                <ValidationMessage For="() => Fermentablepair.Weight" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/fermentablepairs">Back to List</a>
+</div>
+
+@code {
+
+    [SupplyParameterFromForm]
+    public Fermentablepair Fermentablepair { get; set; } = new();
+
+    // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+    public async Task AddFermentablepair()
+    {
+        DB.Fermentablepairs.Add(Fermentablepair);
+        await DB.SaveChangesAsync();
+        NavigationManager.NavigateTo("/fermentablepairs");
+    }
+}

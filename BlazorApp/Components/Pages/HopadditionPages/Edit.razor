@@ -1,0 +1,116 @@
+﻿@page "/Hopadditions/edit"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h4>Hopaddition</h4>
+<hr />
+@if (Hopaddition is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Hopaddition" OnValidSubmit="UpdateHopaddition" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <input type="hidden" name="Hopaddition.Id" value="@Hopaddition.Id" />
+                <div class="mb-3">
+                    <label for="use" class="form-label">Use:</label>
+                    <InputText id="use" @bind-Value="Hopaddition.Use" class="form-control" />
+                    <ValidationMessage For="() => Hopaddition.Use" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="boiltime" class="form-label">BoilTime:</label>
+                    <InputNumber id="boiltime" @bind-Value="Hopaddition.BoilTime" class="form-control" />
+                    <ValidationMessage For="() => Hopaddition.BoilTime" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="dryhopdays" class="form-label">DryHopDays:</label>
+                    <InputNumber id="dryhopdays" @bind-Value="Hopaddition.DryHopDays" class="form-control" />
+                    <ValidationMessage For="() => Hopaddition.DryHopDays" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="form" class="form-label">Form:</label>
+                    <InputText id="form" @bind-Value="Hopaddition.Form" class="form-control" />
+                    <ValidationMessage For="() => Hopaddition.Form" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount:</label>
+                    <InputNumber id="amount" @bind-Value="Hopaddition.Amount" class="form-control" />
+                    <ValidationMessage For="() => Hopaddition.Amount" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="recipeid" class="form-label">RecipeId:</label>
+                    <InputNumber id="recipeid" @bind-Value="Hopaddition.RecipeId" class="form-control" />
+                    <ValidationMessage For="() => Hopaddition.RecipeId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="hopid" class="form-label">HopId:</label>
+                    <InputNumber id="hopid" @bind-Value="Hopaddition.HopId" class="form-control" />
+                    <ValidationMessage For="() => Hopaddition.HopId" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/hopadditions">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    [SupplyParameterFromForm]
+    public Hopaddition? Hopaddition { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Hopaddition ??= await DB.Hopadditions.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (Hopaddition is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see https://aka.ms/RazorPagesCRUD.
+    public async Task UpdateHopaddition()
+    {
+        DB.Attach(Hopaddition!).State = EntityState.Modified;
+
+        try
+        {
+            await DB.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!HopadditionExists(Hopaddition!.Id))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/hopadditions");
+    }
+
+    bool HopadditionExists(int id)
+    {
+        return DB.Hopadditions.Any(e => e.Id == id);
+    }
+}

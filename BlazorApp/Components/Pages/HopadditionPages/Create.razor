@@ -1,0 +1,73 @@
+﻿@page "/hopadditions/create"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h4>Hopaddition</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Hopaddition" OnValidSubmit="AddHopaddition" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" />
+            <div class="mb-3">
+                <label for="use" class="form-label">Use:</label> 
+                <InputText id="use" @bind-Value="Hopaddition.Use" class="form-control" /> 
+                <ValidationMessage For="() => Hopaddition.Use" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="boiltime" class="form-label">BoilTime:</label> 
+                <InputNumber id="boiltime" @bind-Value="Hopaddition.BoilTime" class="form-control" /> 
+                <ValidationMessage For="() => Hopaddition.BoilTime" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="dryhopdays" class="form-label">DryHopDays:</label> 
+                <InputNumber id="dryhopdays" @bind-Value="Hopaddition.DryHopDays" class="form-control" /> 
+                <ValidationMessage For="() => Hopaddition.DryHopDays" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="form" class="form-label">Form:</label> 
+                <InputText id="form" @bind-Value="Hopaddition.Form" class="form-control" /> 
+                <ValidationMessage For="() => Hopaddition.Form" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="amount" class="form-label">Amount:</label> 
+                <InputNumber id="amount" @bind-Value="Hopaddition.Amount" class="form-control" /> 
+                <ValidationMessage For="() => Hopaddition.Amount" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="recipeid" class="form-label">RecipeId:</label> 
+                <InputNumber id="recipeid" @bind-Value="Hopaddition.RecipeId" class="form-control" /> 
+                <ValidationMessage For="() => Hopaddition.RecipeId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="hopid" class="form-label">HopId:</label> 
+                <InputNumber id="hopid" @bind-Value="Hopaddition.HopId" class="form-control" /> 
+                <ValidationMessage For="() => Hopaddition.HopId" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/hopadditions">Back to List</a>
+</div>
+
+@code {
+
+    [SupplyParameterFromForm]
+    public Hopaddition Hopaddition { get; set; } = new();
+
+    // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+    public async Task AddHopaddition()
+    {
+        DB.Hopadditions.Add(Hopaddition);
+        await DB.SaveChangesAsync();
+        NavigationManager.NavigateTo("/hopadditions");
+    }
+}

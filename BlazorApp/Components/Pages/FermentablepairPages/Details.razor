@@ -1,0 +1,49 @@
+﻿@page "/fermentablepairs/details"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Fermentablepair</h4>
+    <hr />
+    @if (fermentablepair is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">RecipeId</dt>
+            <dd class="col-sm-10">@fermentablepair.RecipeId</dd>
+            <dt class="col-sm-2">FermentableId</dt>
+            <dd class="col-sm-10">@fermentablepair.FermentableId</dd>
+            <dt class="col-sm-2">Weight</dt>
+            <dd class="col-sm-10">@fermentablepair.Weight</dd>
+        </dl>
+        <div>
+            <a href="@($"/fermentablepairs/edit?id={fermentablepair.Id}")">Edit</a> |
+            <a href="@($"/fermentablepairs")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    Fermentablepair? fermentablepair;
+
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        fermentablepair = await DB.Fermentablepairs.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (fermentablepair is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

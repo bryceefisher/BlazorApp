@@ -17,123 +17,163 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BlazorApp
 build_property.RootNamespace = BlazorApp
-build_property.ProjectDir = C:\Users\bryce\OneDrive\Desktop\BlazorApp\BlazorApp\
+build_property.ProjectDir = C:\Users\bryce\OneDrive\Desktop\New folder\BlazorApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\bryce\OneDrive\Desktop\BlazorApp\BlazorApp
+build_property.MSBuildProjectDirectory = C:\Users\bryce\OneDrive\Desktop\New folder\BlazorApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/App.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/Error.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/FermentablePages/Create.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/FermentablePages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZXJtZW50YWJsZVBhZ2VzXENyZWF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/FermentablePages/Delete.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/FermentablePages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZXJtZW50YWJsZVBhZ2VzXERlbGV0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/FermentablePages/Details.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/FermentablePages/Details.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZXJtZW50YWJsZVBhZ2VzXERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/FermentablePages/Edit.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/FermentablePages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZXJtZW50YWJsZVBhZ2VzXEVkaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/FermentablePages/Index.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/FermentablePages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZXJtZW50YWJsZVBhZ2VzXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/Home.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/FermentablepairPages/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZXJtZW50YWJsZXBhaXJQYWdlc1xDcmVhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/FermentablepairPages/Delete.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZXJtZW50YWJsZXBhaXJQYWdlc1xEZWxldGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/FermentablepairPages/Details.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZXJtZW50YWJsZXBhaXJQYWdlc1xEZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/FermentablepairPages/Edit.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZXJtZW50YWJsZXBhaXJQYWdlc1xFZGl0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/FermentablepairPages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZXJtZW50YWJsZXBhaXJQYWdlc1xJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/HopPages/Create.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/HopadditionPages/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb3BhZGRpdGlvblBhZ2VzXENyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/HopadditionPages/Delete.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb3BhZGRpdGlvblBhZ2VzXERlbGV0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/HopadditionPages/Details.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb3BhZGRpdGlvblBhZ2VzXERldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/HopadditionPages/Edit.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb3BhZGRpdGlvblBhZ2VzXEVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/HopadditionPages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb3BhZGRpdGlvblBhZ2VzXEluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/HopPages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb3BQYWdlc1xDcmVhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/HopPages/Delete.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/HopPages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb3BQYWdlc1xEZWxldGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/HopPages/Details.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/HopPages/Details.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb3BQYWdlc1xEZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/HopPages/Edit.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/HopPages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb3BQYWdlc1xFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/HopPages/Index.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/HopPages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb3BQYWdlc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/RecipePages/Create.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/RecipePages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVQYWdlc1xDcmVhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/RecipePages/Delete.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/RecipePages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVQYWdlc1xEZWxldGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/RecipePages/Details.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/RecipePages/Details.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVQYWdlc1xEZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/RecipePages/Edit.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/RecipePages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVQYWdlc1xFZGl0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/RecipePages/Index.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/RecipePages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVQYWdlc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/Weather.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/YeastPages/Create.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/YeastPages/Create.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xZZWFzdFBhZ2VzXENyZWF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/YeastPages/Delete.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/YeastPages/Delete.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xZZWFzdFBhZ2VzXERlbGV0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/YeastPages/Details.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/YeastPages/Details.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xZZWFzdFBhZ2VzXERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/YeastPages/Edit.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/YeastPages/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xZZWFzdFBhZ2VzXEVkaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Pages/YeastPages/Index.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Pages/YeastPages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xZZWFzdFBhZ2VzXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Routes.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/_Imports.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Layout/MainLayout.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-qgsvw684bo
 
-[C:/Users/bryce/OneDrive/Desktop/BlazorApp/BlazorApp/Components/Layout/NavMenu.razor]
+[C:/Users/bryce/OneDrive/Desktop/New folder/BlazorApp/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-g8o6n169oq

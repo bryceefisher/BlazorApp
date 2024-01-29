@@ -1,0 +1,24 @@
+﻿@page "/fermentablepairs"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="fermentablepairs/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="DB.Fermentablepairs">
+    <PropertyColumn Property="fermentablepair => fermentablepair.RecipeId" />
+    <PropertyColumn Property="fermentablepair => fermentablepair.FermentableId" />
+    <PropertyColumn Property="fermentablepair => fermentablepair.Weight" />
+
+    <TemplateColumn Context="fermentablepair">
+        <a href="@($"fermentablepairs/edit?id={fermentablepair.Id}")">Edit</a> |
+        <a href="@($"fermentablepairs/details?id={fermentablepair.Id}")">Details</a> |
+        <a href="@($"fermentablepairs/delete?id={fermentablepair.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>

@@ -1,0 +1,28 @@
+﻿@page "/hopadditions"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="hopadditions/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="DB.Hopadditions">
+    <PropertyColumn Property="hopaddition => hopaddition.Use" />
+    <PropertyColumn Property="hopaddition => hopaddition.BoilTime" />
+    <PropertyColumn Property="hopaddition => hopaddition.DryHopDays" />
+    <PropertyColumn Property="hopaddition => hopaddition.Form" />
+    <PropertyColumn Property="hopaddition => hopaddition.Amount" />
+    <PropertyColumn Property="hopaddition => hopaddition.RecipeId" />
+    <PropertyColumn Property="hopaddition => hopaddition.HopId" />
+
+    <TemplateColumn Context="hopaddition">
+        <a href="@($"hopadditions/edit?id={hopaddition.Id}")">Edit</a> |
+        <a href="@($"hopadditions/details?id={hopaddition.Id}")">Details</a> |
+        <a href="@($"hopadditions/delete?id={hopaddition.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>

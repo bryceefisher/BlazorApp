@@ -1,0 +1,96 @@
+﻿@page "/Fermentablepairs/edit"
+@inject BlazorApp.Models.MysqlhomebrewContext DB
+@using BlazorApp.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Edit</PageTitle>
+
+<h1>Edit</h1>
+
+<h4>Fermentablepair</h4>
+<hr />
+@if (Fermentablepair is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <EditForm method="post" Model="Fermentablepair" OnValidSubmit="UpdateFermentablepair" FormName="edit" Enhance>
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <input type="hidden" name="Fermentablepair.Id" value="@Fermentablepair.Id" />
+                <div class="mb-3">
+                    <label for="recipeid" class="form-label">RecipeId:</label>
+                    <InputNumber id="recipeid" @bind-Value="Fermentablepair.RecipeId" class="form-control" />
+                    <ValidationMessage For="() => Fermentablepair.RecipeId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="fermentableid" class="form-label">FermentableId:</label>
+                    <InputNumber id="fermentableid" @bind-Value="Fermentablepair.FermentableId" class="form-control" />
+                    <ValidationMessage For="() => Fermentablepair.FermentableId" class="text-danger" />
+                </div>
+                <div class="mb-3">
+                    <label for="weight" class="form-label">Weight:</label>
+                    <InputNumber id="weight" @bind-Value="Fermentablepair.Weight" class="form-control" />
+                    <ValidationMessage For="() => Fermentablepair.Weight" class="text-danger" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </EditForm>
+        </div>
+    </div>
+}
+
+<div>
+    <a href="/fermentablepairs">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    [SupplyParameterFromForm]
+    public Fermentablepair? Fermentablepair { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Fermentablepair ??= await DB.Fermentablepairs.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (Fermentablepair is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see https://aka.ms/RazorPagesCRUD.
+    public async Task UpdateFermentablepair()
+    {
+        DB.Attach(Fermentablepair!).State = EntityState.Modified;
+
+        try
+        {
+            await DB.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!FermentablepairExists(Fermentablepair!.Id))
+            {
+                NavigationManager.NavigateTo("notfound");
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        NavigationManager.NavigateTo("/fermentablepairs");
+    }
+
+    bool FermentablepairExists(int id)
+    {
+        return DB.Fermentablepairs.Any(e => e.Id == id);
+    }
+}
