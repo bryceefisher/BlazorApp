@@ -1,6 +1,8 @@
 ﻿using BlazorApp.Client.Pages;
 using BlazorApp.Components;
+using BlazorApp.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// Retrieve the connection string from your configuration
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Add Entity Framework Core DbContext to the DI container
+
+builder.Services.AddDbContext<MysqlhomebrewContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.Parse("mysql-8.0"), mysqlOptions =>
+        mysqlOptions.MigrationsAssembly("HomebrewDesigner.UI").EnableRetryOnFailure().UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 
 var app = builder.Build();
 

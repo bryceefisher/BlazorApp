@@ -852,7 +852,7 @@
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
-      "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.1": {
+      "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.0": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
@@ -1990,7 +1990,7 @@
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
-      "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.1": {
+      "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.0": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
@@ -3618,10 +3618,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.1": {
-      "sha512": "WE5sCiA6FbpmHBA7SeIApjBhBFfHQlWTqn5N5jCTncpSHFchjsc6hyXhPjS0PqIV8eiWayNmJpN+VmV1nHFVAw==",
+    "Microsoft.NET.Sdk.WebAssembly.Pack/8.0.0": {
+      "sha512": "zIP/2rXQN1Q7xkqxJmDU31BvoISdhM6tH0o206ShlTCWgcmMKuGapPYIDcDcUmIZjZGHrLKM4z/MsgfLGi0VUw==",
       "type": "package",
-      "path": "microsoft.net.sdk.webassembly.pack/8.0.1",
+      "path": "microsoft.net.sdk.webassembly.pack/8.0.0",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -3649,7 +3649,7 @@
         "build/Microsoft.NET.Sdk.WebAssembly.Pack.props",
         "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets",
         "build/Wasm.web.config",
-        "microsoft.net.sdk.webassembly.pack.8.0.1.nupkg.sha512",
+        "microsoft.net.sdk.webassembly.pack.8.0.0.nupkg.sha512",
         "microsoft.net.sdk.webassembly.pack.nuspec",
         "tools/net472/Microsoft.Bcl.AsyncInterfaces.dll",
         "tools/net472/Microsoft.Build.dll",
@@ -4133,37 +4133,31 @@
       "Microsoft.EntityFrameworkCore >= 8.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.1",
       "Microsoft.NET.ILLink.Tasks >= 8.0.0",
-      "Microsoft.NET.Sdk.WebAssembly.Pack >= 8.0.1"
+      "Microsoft.NET.Sdk.WebAssembly.Pack >= 8.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bryce\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/bryce/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bryce\\OneDrive\\Desktop\\New folder\\BlazorApp.Client\\BlazorApp.Client.csproj",
+      "projectUniqueName": "/Users/bryce/Desktop/HomebrewBlazor/BlazorApp.Client/BlazorApp.Client.csproj",
       "projectName": "BlazorApp.Client",
-      "projectPath": "C:\\Users\\bryce\\OneDrive\\Desktop\\New folder\\BlazorApp.Client\\BlazorApp.Client.csproj",
-      "packagesPath": "C:\\Users\\bryce\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bryce\\OneDrive\\Desktop\\New folder\\BlazorApp.Client\\obj\\",
+      "projectPath": "/Users/bryce/Desktop/HomebrewBlazor/BlazorApp.Client/BlazorApp.Client.csproj",
+      "packagesPath": "/Users/bryce/.nuget/packages/",
+      "outputPath": "/Users/bryce/Desktop/HomebrewBlazor/BlazorApp.Client/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\bryce\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/bryce/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "/usr/local/share/dotnet/library-packs": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/discord-net/api/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
@@ -4175,11 +4169,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4209,7 +4198,7 @@
           "Microsoft.NET.Sdk.WebAssembly.Pack": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[8.0.1, )",
+            "version": "[8.0.0, )",
             "autoReferenced": true
           }
         },
@@ -4227,7 +4216,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[8.0.1, 8.0.1]"
+            "version": "[8.0.0, 8.0.0]"
           }
         ],
         "frameworkReferences": {
@@ -4235,7 +4224,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200-preview.23624.5/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

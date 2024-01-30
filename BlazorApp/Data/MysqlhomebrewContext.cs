@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using BlazorApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
 
-namespace BlazorApp.Models;
+namespace BlazorApp.Data;
 
 public partial class MysqlhomebrewContext : DbContext
 {

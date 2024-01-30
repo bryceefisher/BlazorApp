@@ -1,35 +1,35 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\bryce\\OneDrive\\Desktop\\New folder\\BlazorApp.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
-      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+      "Id": "/Users/bryce/Desktop/HomebrewBlazor/BlazorApp.Client/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
     },
     {
-      "Id": "C:\\Users\\bryce\\OneDrive\\Desktop\\New folder\\BlazorApp.Client\\obj\\Debug\\net8.0\\compressed\\24cor275be.gz",
-      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+      "Id": "/Users/bryce/Desktop/HomebrewBlazor/BlazorApp.Client/obj/Debug/net8.0/compressed/elyfmiemi2.gz",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
     },
     {
-      "Id": "C:\\Users\\bryce\\OneDrive\\Desktop\\New folder\\BlazorApp.Client\\wwwroot\\appsettings.Development.json",
-      "PackagePath": "staticwebassets\\appsettings.Development.json"
+      "Id": "/Users/bryce/Desktop/HomebrewBlazor/BlazorApp.Client/wwwroot/appsettings.Development.json",
+      "PackagePath": "staticwebassets/appsettings.Development.json"
     },
     {
-      "Id": "C:\\Users\\bryce\\OneDrive\\Desktop\\New folder\\BlazorApp.Client\\wwwroot\\appsettings.json",
-      "PackagePath": "staticwebassets\\appsettings.json"
+      "Id": "/Users/bryce/Desktop/HomebrewBlazor/BlazorApp.Client/wwwroot/appsettings.json",
+      "PackagePath": "staticwebassets/appsettings.json"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlazorApp.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.BlazorApp.Client.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BlazorApp.Client.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.BlazorApp.Client.props",
       "PackagePath": "build\\BlazorApp.Client.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorApp.Client.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.BlazorApp.Client.props",
       "PackagePath": "buildMultiTargeting\\BlazorApp.Client.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BlazorApp.Client.props",
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.BlazorApp.Client.props",
       "PackagePath": "buildTransitive\\BlazorApp.Client.props"
     }
   ],
